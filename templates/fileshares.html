@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{ font: 14px sans-serif; text-align: center; }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="index" class="btn btn-warning">Main page</a>
+    </p>
+    <h1>File Shares List:</h1>
+        {% for e in shares %}
+        	<a href="/share/{{e}}">{{e}}</a><br>
+    	{% endfor %}
+    <div class="wrapper">
+        <form action="{{ url_for('fileshare') }}" method="post"> 
+            <div class="form-group">
+                <br><label>Fileshare name:</label>
+                    <input id="sharename" name="sharename" type="text" placeholder="Enter fileshare name" class="textbox"/></br></br>
+                    <input type="submit" class="btn btn-warning" value="Create fileshare"></br>
+                    <div class="msg">{{ msg }}</div>
+            </div>    
+        </form>
+    </div>    
+</body>
+</html>
